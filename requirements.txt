@@ -3,5 +3,5 @@ google-search-results
 pypdf
 langchain
 langchain-community
-langchain_openai
+langchain-openai
 faiss-cpu
