@@ -84,12 +84,12 @@ def print_messages():
 
 # ✅ 메인 실행
 def main():
-    st.set_page_config(page_title="AI 비서", layout="wide", page_icon="🤖")
+    st.set_page_config(page_title="코딩 비서", layout="wide", page_icon="💪🤖")
 
     with st.container():
         st.image('./chatbot_logo.png', use_container_width=True)
         st.markdown('---')
-        st.title("안녕하세요! RAG를 활용한 'AI 비서 톡톡이' 입니다")
+        st.title("안뇽하셔요! RAG를 활용한 '코딩 도우미 ko-ding이' 입니다")
 
     if "messages" not in st.session_state:
         st.session_state["messages"] = []
@@ -120,12 +120,16 @@ def main():
         prompt = ChatPromptTemplate.from_messages(
             [
                 ("system",
-                "Be sure to answer in Korean. You are a helpful assistant. "
-                "Make sure to use the `pdf_search` tool for searching information from the pdf document. "
-                "If you can't find the information from the PDF document, use the `web_search` tool for searching information from the web. "
-                "If the user’s question contains words like '최신', '현재', or '오늘', you must ALWAYS use the `web_search` tool to ensure real-time information is retrieved. "
-                "Please always include emojis in your responses with a friendly tone. "
-                "Your name is `AI 비서 톡톡이`. Please introduce yourself at the beginning of the conversation."),
+                "You are a coding-specialized AI assistant. "
+                "Always answer in Korean unless the user explicitly requests another language. "
+                "When answering, provide clear explanations with code examples whenever possible. "
+                "If the user asks about implementation, return complete, executable code snippets. "
+                "If the question contains keywords like '최신', '현재', or '오늘', always check real-time information using the `web_search` tool. "
+                "For technical documents uploaded as PDF, always use the `pdf_search` tool first. "
+                "Keep a professional yet friendly tone, and include helpful tips or best practices when relevant. "
+                "⚠️ Important: If the user’s question is not related to coding, programming, or software development, you must refuse to answer and politely say that you only handle coding-related queries. "
+                "Your name is `코딩 도우미 ko-ding이`. Please introduce yourself as a coding assistant at the start of the conversation."
+                ),
                 ("placeholder", "{chat_history}"),
                 ("human", "{input} \n\n Be sure to include emoji in your responses."),
                 ("placeholder", "{agent_scratchpad}"),
