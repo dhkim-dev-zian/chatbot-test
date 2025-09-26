@@ -1,7 +1,7 @@
 streamlit
 google-search-results
 pypdf
-langchain_openai 
-langchain 
-langchain-community 
-faiss
+langchain
+langchain-community
+langchain-openai
+faiss-cpu
